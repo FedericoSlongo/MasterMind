@@ -1,2 +1,4 @@
 # MasterMind
-The MasterMind game (right now doesn't work)
+The MasterMind game     
+Right now doesn't work  
+Wrote in Italian
