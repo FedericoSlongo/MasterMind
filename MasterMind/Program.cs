@@ -15,10 +15,12 @@ namespace MasterMind
             Random rd = new Random();
             bool vinto = false, doppione = true;
 
-            Console.WriteLine("Inserire in ordine il codice segreto");
             for (int i = 0; i < 4; i++)
             {
-                while (!int.TryParse(Console.ReadLine(), out codice_segreto[i])) {}
+                Console.Write("Inserire in ordine il codice segreto ");
+
+                //Controllo che il numero sia tra 0 e 9
+                while ((!int.TryParse(Console.ReadLine(), out codice_segreto[i])) || (!(codice_segreto[i] >= 0) || !(codice_segreto[i] <= 9))) {}
 
                 //Controllo dei doppioni non funzionante
                 for (int n = 0; n < 4; n++)
