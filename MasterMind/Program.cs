@@ -19,9 +19,10 @@ namespace MasterMind
             for (int i = 0; i < 4; i++)
             {
                 while (!int.TryParse(Console.ReadLine(), out codice_segreto[i])) {}
+
+                //Controllo dei doppioni non funzionante
                 for (int n = 0; n < 4; n++)
                 {
-
                     while (!doppione)
                     {
                         if (codice_segreto[i] == codice_segreto[n])
@@ -44,7 +45,10 @@ namespace MasterMind
             {
                 for (int i = 0; i < 4; i++)
                 {
+                    //Genera il numero
                     codice_generato[i] = rd.Next(0, 10);
+
+                    //Controllo se il numero in posizione giusta è correta
                     if (codice_generato[i] == codice_segreto[i])
                     {
                         if (corretti[i] == true)
@@ -61,6 +65,7 @@ namespace MasterMind
                 }
 
                 vinto = true;
+                //Controllo se tutti i numeri sono corretti
                 for (int i = 0; i < 4; i++)
                 {
                     if (correto_giusto[i] == codice_segreto[i])
@@ -71,9 +76,9 @@ namespace MasterMind
                         vinto = false;
                     }
                 }
-
             } while (!vinto);
 
+            //Stampa dei risultati
             Console.Write("Il computer ha trovato tutti i numeri (i numeri trovati dal pc sono:");
             foreach (var item in correto_giusto)
             {
