@@ -48,9 +48,42 @@ namespace MasterMind
                     //Genera il numero
                     codice_generato[i] = rd.Next(0, 10);
 
+                    //Controlla se il numero generato si trova in una posizione del codice segreto
+                    for (int n = 0; n < 4; n++)
+                    {
+                        if (codice_generato[n] == codice_segreto[i])
+                        {
+                            if (i == n)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Il computer ha trovato un numero che è nel codice segreto ma non in posiozione correta");
+                                for (int t = 0; t < 4; t++)
+                                {
+                                    if (codice_generato[t] == codice_segreto[i])
+                                    {
+                                        if (corretti[i] == true)
+                                        {
+                                            continue;
+                                        }
+                                        else
+                                        {
+                                            corretti[i] = true;
+                                            Console.WriteLine($"Il computer ha trovato il numero giusto in posiozione {i + 1}");
+                                            correto_giusto[i] = codice_segreto[i];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     //Controllo se il numero in posizione giusta è correta
                     if (codice_generato[i] == codice_segreto[i])
                     {
+                        //Se il numero è correto esce ricomincia
                         if (corretti[i] == true)
                         {
                             continue;
